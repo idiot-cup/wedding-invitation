@@ -91,7 +91,7 @@ img {
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 176px 10px 0;
+  padding: 142px 8px 0;
   text-shadow: 0 2px 18px rgba(31, 0, 0, 0.7);
 }
 
@@ -121,7 +121,7 @@ h1 {
 }
 
 .names {
-  margin: 18px 0 14px;
+  margin: 12px 0 10px;
   color: #fff3ce;
   font-family: "SimSun", "STSong", serif;
   font-size: clamp(1.45rem, 7vw, 2.1rem);
@@ -137,24 +137,45 @@ h1 {
   display: inline-grid;
   gap: 4px;
   min-width: min(100%, 300px);
-  padding: 12px 18px;
+  padding: 9px 18px;
   border-block: 1px solid rgba(241, 214, 141, 0.62);
   color: #fff8dd;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .date-card p,
 .scroll-cue,
+.hero-message p,
 .invitation__copy,
 .location p,
 .location__finale p {
   margin: 0;
 }
 
+.hero-message {
+  display: grid;
+  gap: 4px;
+  width: min(100%, 326px);
+  margin: 0 auto 10px;
+  padding: 10px 12px;
+  border-block: 1px solid rgba(241, 214, 141, 0.42);
+  background: linear-gradient(90deg, transparent, rgba(50, 4, 4, 0.44), transparent);
+  color: rgba(255, 248, 232, 0.92);
+  font-family: "SimSun", "STSong", serif;
+  font-size: clamp(0.78rem, 3.7vw, 0.96rem);
+  line-height: 1.55;
+}
+
+.hero-message p:first-child {
+  color: var(--gold-300);
+  font-size: clamp(0.92rem, 4.4vw, 1.15rem);
+  font-weight: 700;
+}
+
 .scroll-cue {
-  margin-top: 16px;
+  margin-top: 10px;
   color: rgba(255, 248, 232, 0.86);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .section {
@@ -338,7 +359,7 @@ h1 {
   }
 
   .hero__content {
-    padding-top: 150px;
+    padding-top: 126px;
   }
 
   .photo-pair {

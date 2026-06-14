@@ -74,5 +74,40 @@ if (!locationMapRule) {
   }
 }
 
+const heroSection = html.match(/<section class="hero"[\s\S]*?<\/section>/);
+const requiredHeroText = [
+  '吾家有喜 爱子结婚',
+  '良辰已定 吉日待访',
+  '举行婚礼庆典',
+  '敬备喜宴 诚邀您携家人光临'
+];
+if (!heroSection) {
+  fail('Missing hero section');
+} else {
+  for (const text of requiredHeroText) {
+    if (!heroSection[0].includes(text)) {
+      fail(`Expected hero section to include: ${text}`);
+    }
+  }
+  const heroMessage = heroSection[0].match(/<div class="hero-message"[\s\S]*?<\/div>/);
+  if (!heroMessage) {
+    fail('Missing compact hero message block');
+  } else if (heroMessage[0].includes('谨定于公历2026年7月5日 农历2026年5月21日')) {
+    fail('Hero message should not duplicate the original date card');
+  }
+}
+
+const heroIndex = html.indexOf('<section class="hero"');
+const locationIndex = html.indexOf('<section class="section location');
+const invitationIndex = html.indexOf('<section class="section invitation');
+const galleryIndex = html.indexOf('<section class="section gallery');
+if (!(heroIndex !== -1 && locationIndex !== -1 && invitationIndex !== -1 && galleryIndex !== -1)) {
+  fail('Expected hero, location, invitation, and gallery sections');
+} else {
+  if (!(heroIndex < locationIndex && locationIndex < invitationIndex && invitationIndex < galleryIndex)) {
+    fail('Expected section order: hero, location, invitation, gallery');
+  }
+}
+
 if (process.exitCode) process.exit(process.exitCode);
 console.log('Static site validation passed');
