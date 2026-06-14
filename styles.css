@@ -147,7 +147,7 @@ h1 {
 .scroll-cue,
 .invitation__copy,
 .location p,
-.finale p {
+.location__finale p {
   margin: 0;
 }
 
@@ -170,7 +170,7 @@ h1 {
 }
 
 .section h2,
-.finale h2 {
+.location__finale h2 {
   color: var(--red-700);
   font-size: clamp(2rem, 10vw, 3.2rem);
   line-height: 1.1;
@@ -273,25 +273,30 @@ h1 {
 
 .location__map {
   width: 100%;
-  margin-top: 20px;
+  height: auto;
+  aspect-ratio: 1128 / 955;
+  object-fit: contain;
+  margin-top: 16px;
   border: 1px solid rgba(143, 23, 18, 0.2);
   box-shadow: 0 18px 46px rgba(70, 28, 12, 0.18);
 }
 
-.finale {
-  padding: 60px 22px 72px;
+.location__finale {
+  margin: 28px -22px -56px;
+  padding: 34px 22px 42px;
   text-align: center;
   background:
     radial-gradient(circle at center top, rgba(241, 214, 141, 0.18), transparent 24rem),
     var(--red-900);
 }
 
-.finale h2 {
+.location__finale h2 {
   color: var(--gold-300);
+  font-size: clamp(1.8rem, 8.5vw, 2.7rem);
 }
 
-.finale p {
-  margin-top: 18px;
+.location__finale p {
+  margin-top: 14px;
   color: rgba(255, 248, 232, 0.88);
   line-height: 1.9;
 }

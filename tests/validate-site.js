@@ -53,5 +53,26 @@ if (!html.includes('loading="lazy"')) fail('Expected lazy loading for non-hero i
 if (!css.includes('@media')) fail('Expected responsive CSS media query');
 if (!css.includes('prefers-reduced-motion')) fail('Expected reduced motion handling');
 
+const locationSection = html.match(/<section class="section location[\s\S]*?<\/section>/);
+if (!locationSection) {
+  fail('Missing location section');
+} else {
+  if (!locationSection[0].includes('父母 张家祝 王艳 敬邀')) {
+    fail('Expected parent invitation line inside the location section');
+  }
+}
+
+const locationMapRule = css.match(/\.location__map\s*\{[\s\S]*?\}/);
+if (!locationMapRule) {
+  fail('Missing .location__map CSS rule');
+} else {
+  if (!/height:\s*auto\s*;/.test(locationMapRule[0])) {
+    fail('Expected .location__map to preserve image ratio with height: auto');
+  }
+  if (!/aspect-ratio:\s*1128\s*\/\s*955\s*;/.test(locationMapRule[0])) {
+    fail('Expected .location__map to declare the source image aspect ratio');
+  }
+}
+
 if (process.exitCode) process.exit(process.exitCode);
 console.log('Static site validation passed');
